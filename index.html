@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golyne — Digital Agency</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk..." rel="stylesheet">
+</head>
+<body>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Golyne — Digital Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --void:#0a0817;
+  --deep:#140d2a;
+  --violet:#7c3aed;
+  --violet-bright:#9d4edd;
+  --cyan:#00d4ff;
+  --cyan-bright:#00f5ff;
+  --pink:#ff006e;
+  --white:#f0f0ff;
+  --muted:#b8a9c9;
+  --glass:rgba(157,78,221,0.12);
+  --glass-border:rgba(0,212,255,0.2);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--white);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--void);}
+::-webkit-scrollbar-thumb{background:var(--violet);border-radius:2px;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:linear-gradient(90deg,rgba(156,78,221,0.5),rgba(0,212,255,0.4));border-bottom:1px solid rgba(0,212,255,0.35);}
+.logo{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#9d4edd,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:linear-gradient(135deg,#9d4edd,#00d4ff);color:#fff;border:none;padding:10px 24px;border-radius:50px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;transition:opacity .2s,transform .2s;box-shadow:0 0 20px rgba(0,212,255,0.3);}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px);}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:120px 5% 80px;text-align:center;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:drift 8s ease-in-out infinite;}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,var(--violet) 0%,transparent 70%);top:-200px;left:-150px;}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,var(--cyan) 0%,transparent 70%);bottom:-100px;right:-100px;animation-delay:-3s;}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,var(--pink) 0%,transparent 70%);top:40%;left:60%;animation-delay:-5s;}
+@keyframes drift{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-15px);}}
+.cube{position:absolute;transform-style:preserve-3d;animation:rotateCube 12s linear infinite;}
+.cube1{width:60px;height:60px;top:15%;left:8%;}
+.cube2{width:40px;height:40px;top:60%;right:8%;animation-delay:-4s;animation-duration:16s;}
+.cube-face{position:absolute;background:rgba(124,58,237,.05);border:1px solid rgba(124,58,237,.3);}
+.cube1 .cube-face{width:60px;height:60px;}
+.c1-front{transform:translateZ(30px);}
+.c1-back{transform:translateZ(-30px) rotateY(180deg);}
+.c1-left{transform:translateX(-30px) rotateY(-90deg);}
+.c1-right{transform:translateX(30px) rotateY(90deg);}
+.c1-top{transform:translateY(-30px) rotateX(90deg);}
+.c1-bottom{transform:translateY(30px) rotateX(-90deg);}
+.cube2 .cube-face{width:40px;height:40px;}
+.c2-front{transform:translateZ(20px);}
+.c2-back{transform:translateZ(-20px) rotateY(180deg);}
+.c2-left{transform:translateX(-20px) rotateY(-90deg);}
+.c2-right{transform:translateX(20px) rotateY(90deg);}
+.c2-top{transform:translateY(-20px) rotateX(90deg);}
+.c2-bottom{transform:translateY(20px) rotateX(-90deg);}
+@keyframes rotateCube{from{transform:rotateX(0) rotateY(0);}to{transform:rotateX(360deg) rotateY(360deg);}}
+.ring{position:absolute;border-radius:50%;animation:spinRing 20s linear infinite;}
+.ring1{width:300px;height:300px;border:1px solid rgba(124,58,237,.2);top:20%;right:15%;}
+.ring2{width:200px;height:200px;border:1px solid rgba(6,182,212,.15);top:25%;right:18%;animation-direction:reverse;animation-duration:15s;}
+@keyframes spinRing{from{transform:rotate(0) rotateX(60deg);}to{transform:rotate(360deg) rotateX(60deg);}}
+.hero-content{position:relative;z-index:2;max-width:900px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--glass-border);border-radius:50px;padding:8px 20px;font-size:.8rem;color:var(--cyan-bright);margin-bottom:2rem;backdrop-filter:blur(10px);}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-bright);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,6.5rem);font-weight:800;line-height:1.05;margin-bottom:1.5rem;letter-spacing:-2px;}
+.gradient-text{background:linear-gradient(135deg,#9d4edd 0%,#00d4ff 50%,#ff006e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:600px;margin:0 auto 3rem;line-height:1.7;}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:linear-gradient(135deg,#9d4edd,#00d4ff);color:#fff;border:none;padding:16px 36px;border-radius:50px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;box-shadow:0 0 30px rgba(0,212,255,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(124,58,237,.4);}
+.btn-secondary{background:transparent;color:var(--white);border:1px solid var(--glass-border);padding:16px 36px;border-radius:50px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s;backdrop-filter:blur(10px);}
+.btn-secondary:hover{background:var(--glass);border-color:rgba(255,255,255,.2);}
+.stats-bar{display:flex;justify-content:center;gap:3rem;margin-top:5rem;flex-wrap:wrap;}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,#9d4edd,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-label{font-size:.75rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1px;}
+.marquee-section{padding:2.5rem 0;border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);overflow:hidden;}
+.marquee-track{display:flex;gap:3rem;animation:marquee 25s linear infinite;white-space:nowrap;}
+.marquee-item{display:flex;align-items:center;gap:.75rem;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;flex-shrink:0;}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--violet-bright);}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.section{padding:100px 5%;}
+.section-label{font-size:.72rem;text-transform:uppercase;letter-spacing:3px;color:var(--violet-bright);margin-bottom:1rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-1px;}
+.section-sub{color:var(--muted);font-size:1rem;max-width:500px;line-height:1.7;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:5rem;}
+.service-card{background:var(--deep);padding:2.5rem;transition:all .4s;position:relative;overflow:hidden;border:1px solid rgba(0,212,255,0.1);border-radius:20px;}
+.service-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(157,78,221,0.15),rgba(0,212,255,0.1));opacity:0;transition:opacity .4s;}
+.service-card:hover{border-color:rgba(0,212,255,0.5);box-shadow:0 0 30px rgba(0,212,255,0.2);transform:translateY(-5px);}
+.service-card:hover::after{opacity:1;}
+.service-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem;transition:all .3s ease;}
+.icon-v{background:linear-gradient(135deg,rgba(157,78,221,0.3),rgba(157,78,221,0.05));border:1px solid rgba(157,78,221,0.4);}
+.icon-c{background:linear-gradient(135deg,rgba(0,212,255,0.3),rgba(0,212,255,0.05));border:1px solid rgba(0,212,255,0.4);}
+.icon-p{background:linear-gradient(135deg,rgba(236,72,153,.25),rgba(236,72,153,.05));border:1px solid rgba(236,72,153,.3);}
+.service-icon svg{width:100%;height:100%;transition:all .3s ease;}
+.service-card:hover .service-icon{transform:scale(1.1) rotateY(10deg);box-shadow:0 8px 24px rgba(124,58,237,.3);}
+.service-card h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.6rem;}
+.service-card p{color:var(--muted);font-size:.875rem;line-height:1.7;}
+.service-arrow{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.25rem;font-size:.82rem;font-weight:600;color:var(--violet-bright);transition:gap .2s;text-decoration:none;cursor:pointer;position:relative;z-index:10;}
+.service-card:hover .service-arrow{gap:.7rem;}
+.service-arrow:hover{color:var(--cyan-bright);}
+.process-section{padding:100px 5%;background:linear-gradient(180deg,var(--void),var(--deep),var(--void));}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:5rem;position:relative;}
+.process-grid::before{content:'';position:absolute;top:39px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--violet),var(--cyan),transparent);}
+.process-step{text-align:center;}
+.step-num{width:80px;height:80px;border-radius:50%;background:var(--void);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;position:relative;transition:all .3s;}
+.step-num::before{content:'';position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,#9d4edd,#00d4ff);z-index:-1;opacity:0;transition:opacity .3s;}
+.process-step:hover .step-num::before{opacity:1;}
+.process-step:hover .step-num{background:var(--deep);}
+.process-step h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.process-step p{color:var(--muted);font-size:.82rem;line-height:1.6;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.why-visual{position:relative;height:480px;}
+.why-card{position:absolute;background:linear-gradient(135deg,rgba(157,78,221,0.12),rgba(0,212,255,0.08));border:1px solid rgba(0,212,255,0.2);border-radius:20px;padding:1.5rem;backdrop-filter:blur(20px);}
+.why-card:nth-child(1){width:255px;top:0;left:0;animation:wf1 6s ease-in-out infinite;}
+.why-card:nth-child(2){width:215px;top:130px;right:0;animation:wf2 7s ease-in-out infinite;}
+.why-card:nth-child(3){width:235px;bottom:20px;left:25px;animation:wf3 5s ease-in-out infinite;}
+@keyframes wf1{0%,100%{transform:rotate(-3deg) translateY(0);}50%{transform:rotate(-3deg) translateY(-12px);}}
+@keyframes wf2{0%,100%{transform:rotate(2deg) translateY(0);}50%{transform:rotate(2deg) translateY(-9px);}}
+@keyframes wf3{0%,100%{transform:rotate(-1deg) translateY(0);}50%{transform:rotate(-1deg) translateY(-10px);}}
+.card-icon{font-size:1.8rem;margin-bottom:.7rem;}
+.why-card h4{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.3rem;}
+.why-card p{font-size:.78rem;color:var(--muted);}
+.why-metric{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;background:linear-gradient(135deg,#9d4edd,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:.4rem;}
+.why-points{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem;}
+.why-point{display:flex;gap:1rem;align-items:flex-start;}
+.point-check{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#9d4edd,#00d4ff);display:flex;align-items:center;justify-content:center;font-size:.68rem;flex-shrink:0;margin-top:2px;box-shadow:0 0 15px rgba(0,212,255,0.3);}
+.point-text h5{font-weight:600;margin-bottom:.2rem;font-size:.95rem;}
+.point-text p{font-size:.82rem;color:var(--muted);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:5rem;}
+.testimonial-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2rem;backdrop-filter:blur(10px);transition:transform .3s;}
+.testimonial-card:hover{transform:translateY(-4px);}
+.stars{color:#f59e0b;margin-bottom:.8rem;letter-spacing:2px;font-size:.85rem;}
+.testimonial-text{font-size:.875rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;font-style:italic;}
+.t-author{display:flex;align-items:center;gap:.75rem;}
+.t-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#9d4edd,#00d4ff);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;box-shadow:0 0 15px rgba(0,212,255,0.3);}
+.t-name{font-weight:600;font-size:.875rem;}
+.t-biz{font-size:.75rem;color:var(--muted);}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:3rem;}
+.contact-item{background:var(--deep);padding:2.5rem;text-align:center;border-radius:20px;border:1px solid rgba(0,212,255,0.1);transition:all .3s;}
+.contact-item:hover{border-color:rgba(0,212,255,0.5);transform:translateY(-5px);box-shadow:0 0 30px rgba(0,212,255,0.2);}
+.contact-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
+.contact-icon svg{width:100%;height:100%;}
+.contact-item h4{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.75rem;}
+.contact-item p{color:var(--muted);font-size:.95rem;line-height:1.6;}
+.cta-section{padding:120px 5%;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(157,78,221,0.25),transparent 70%);}
+.cta-content{position:relative;z-index:1;}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem;}
+.cta-section p{color:var(--muted);font-size:1.05rem;max-width:480px;margin:0 auto 3rem;line-height:1.7;}
+footer{padding:60px 5% 30px;border-top:1px solid var(--glass-border);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand p{color:var(--muted);font-size:.85rem;line-height:1.7;max-width:240px;margin-top:.75rem;}
+.footer-col h5{font-weight:600;margin-bottom:1.25rem;font-size:.875rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.75rem;}
+.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:.82rem;transition:color .2s;}
+.footer-col ul li a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--glass-border);font-size:.78rem;color:var(--muted);}
+.social-links{display:flex;gap:.75rem;margin-top:1.25rem;}
+.social-link{width:34px;height:34px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--white);}
+.social-link:hover{background:var(--violet);border-color:var(--violet);}
+.reveal{opacity:0;transform:translateY(28px);transition:all .7s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .process-grid::before{display:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .why-visual{display:none;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><img src="images/logo.png" alt="Golyne Logo" style="height:85px;width:auto;"></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta">Get Free Mockup</button>
+</nav>
+
+<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="cube cube1">
+    <div class="cube-face c1-front"></div><div class="cube-face c1-back"></div>
+    <div class="cube-face c1-left"></div><div class="cube-face c1-right"></div>
+    <div class="cube-face c1-top"></div><div class="cube-face c1-bottom"></div>
+  </div>
+  <div class="cube cube2">
+    <div class="cube-face c2-front"></div><div class="cube-face c2-back"></div>
+    <div class="cube-face c2-left"></div><div class="cube-face c2-right"></div>
+    <div class="cube-face c2-top"></div><div class="cube-face c2-bottom"></div>
+  </div>
+  <div class="ring ring1"></div>
+  <div class="ring ring2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span> India's Fastest Growing Digital Agency</div>
+    <h1>We Build<br/><span class="gradient-text">Digital Empires</span><br/>For Local Brands</h1>
+    <p class="hero-sub">Websites, apps, SEO, ads, social media, automation & lead generation — everything your business needs to dominate online, delivered in 3–5 days.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Get Free Mockup →</button>
+      <button class="btn-secondary">See Our Work</button>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Projects Done</div></div>
+      <div class="stat"><div class="stat-num">3–5</div><div class="stat-label">Day Delivery</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Website Development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Mobile Apps</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>SEO Optimization</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Google &amp; Meta Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Social Media Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Business Automation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Lead Generation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Website Development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Mobile Apps</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>SEO Optimization</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Google &amp; Meta Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Social Media Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Business Automation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Lead Generation</span>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Every Service Your<br/>Business Needs</h2>
+    <p class="section-sub">From your first website to full-scale digital automation — we handle it all under one roof.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon"><img src="images/web.png" alt="Website Development" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Website Development</h3>
+      <p>Lightning-fast, mobile-first websites that look stunning and rank on Google. Custom designs delivered in 3–5 days.</p>
+      <a href="service.html?service=website" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/mob.png" alt="Mobile App Development" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Mobile App Development</h3>
+      <p>Android & iOS apps built for real business needs — booking systems, loyalty programs, delivery apps and more.</p>
+      <a href="service.html?service=mobile" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/SEO.png" alt="SEO Optimization" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>SEO Optimization</h3>
+      <p>Get found on Google organically. We optimize your site to rank for keywords your customers are actually searching.</p>
+      <a href="service.html?service=seo" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/ads.png" alt="Paid Ads" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Paid Ads (Google & Meta)</h3>
+      <p>High-converting ad campaigns on Google and Meta. We target the right audience and consistently deliver 3–8x ROAS.</p>
+      <a href="service.html?service=ads" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/social media.png" alt="Social Media Marketing" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Social Media Marketing</h3>
+      <p>Content creation, daily posting, reels, stories and community management. We grow your audience while you run your business.</p>
+      <a href="service.html?service=social" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/automation.png" alt="Business Automation" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Business Automation</h3>
+      <p>Automate repetitive tasks — lead outreach, follow-ups, WhatsApp campaigns, and more. Save hours every day and scale faster.</p>
+      <a href="service.html?service=automation" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/leads.png" alt="Lead Generation" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Lead Generation</h3>
+      <p>We find your ideal customers, enrich their contact data, and deliver qualified leads directly to your inbox every day.</p>
+      <a href="service.html?service=leads" class="service-arrow">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><img src="images/repoart.png" alt="Analytics & Reporting" style="width:100%;height:100%;object-fit:contain;"></div>
+      <h3>Analytics & Reporting</h3>
+      <p>Clear monthly reports showing exactly what's working, what we're doing next, and how your business is growing online.</p>
+      <a href="service.html?service=analytics" class="service-arrow">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <div style="text-align:center" class="reveal">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From Idea to Live<br/>in 3–5 Days</h2>
+  </div>
+  <div class="process-grid reveal">
+    <div class="process-step"><div class="step-num">01</div><h4>Free Consultation</h4><p>Tell us about your business. We understand your goals and recommend the right services.</p></div>
+    <div class="process-step"><div class="step-num">02</div><h4>Free Mockup</h4><p>We create a FREE design mockup of your website or app — no payment, no commitment needed.</p></div>
+    <div class="process-step"><div class="step-num">03</div><h4>You Approve</h4><p>Review the mockup, suggest changes, and approve the design you love before we build.</p></div>
+    <div class="process-step"><div class="step-num">04</div><h4>We Build & Launch</h4><p>Our team builds your project and delivers it live within 3–5 business days.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="why-grid reveal">
+    <div>
+      <div class="section-label">Why Golyne</div>
+      <h2 class="section-title">Built for<br/>Businesses to<br/>Win Online</h2>
+      <p class="section-sub">We understand the market. Fast delivery, results that matter, and one agency for everything.</p>
+      <div class="why-points">
+        <div class="why-point"><div class="point-check">✓</div><div class="point-text"><h5>3–5 Day Delivery</h5><p>Your website goes live in days, not months.</p></div></div>
+        <div class="why-point"><div class="point-check">✓</div><div class="point-text"><h5>Free Mockup Before Payment</h5><p>See exactly what you're getting before spending a rupee.</p></div></div>
+        <div class="why-point"><div class="point-check">✓</div><div class="point-text"><h5>Full Automation Solutions</h5><p>We automate your lead generation and follow-ups.</p></div></div>
+        <div class="why-point"><div class="point-check">✓</div><div class="point-text"><h5>One Agency, All Services</h5><p>Website, SEO, ads, social, automation — all under one roof.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-card"><div class="card-icon">🚀</div><h4>Average Delivery</h4><p>Project launch time</p><div class="why-metric">3 Days</div></div>
+      <div class="why-card"><div class="card-icon">📈</div><h4>Lead Growth</h4><p>Average monthly increase</p><div class="why-metric">+340%</div></div>
+      <div class="why-card"><div class="card-icon">⭐</div><h4>Client Rating</h4><p>Average satisfaction score</p><div class="why-metric">4.9 / 5</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div style="text-align:center" class="reveal">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Golyne built our restaurant website in just 4 days. We started getting online orders within the first week. Absolutely amazing service!"</p><div class="t-author"><div class="t-avatar">R</div><div><div class="t-name">Rahul Sharma</div><div class="t-biz">Sharma Dhaba, Delhi</div></div></div></div>
+    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Their lead generation automation sends us 50 WhatsApp messages every day automatically. We've gotten 12 new clients in just one month!"</p><div class="t-author"><div class="t-avatar">P</div><div><div class="t-name">Priya Mehta</div><div class="t-biz">Bloom Boutique, Mumbai</div></div></div></div>
+    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Our Google ranking went from page 4 to page 1 in just 6 weeks. The SEO team at Golyne really knows what they're doing!"</p><div class="t-author"><div class="t-avatar">A</div><div><div class="t-name">Amit Patel</div><div class="t-biz">Apex Realty, Bangalore</div></div></div></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div style="text-align:center" class="reveal">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub" style="margin:0 auto 4rem">Reach out to us through any of these channels. We're here to help your business grow.</p>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-item">
+      <div class="contact-icon icon-v">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="url(#contact1)"/>
+          <defs><linearGradient id="contact1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9d4edd;stop-opacity:1" /><stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" /></linearGradient></defs>
+        </svg>
+      </div>
+      <h4>WhatsApp</h4>
+      <p>9817828516</p>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon icon-c">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.62-6.63l1.97-1.57c.3-.3.4-.74.25-1.15-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="url(#contact2)"/>
+          <defs><linearGradient id="contact2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" /><stop offset="100%" style="stop-color:#00f5ff;stop-opacity:1" /></linearGradient></defs>
+        </svg>
+      </div>
+      <h4>Call Us</h4>
+      <p>9996628516</p>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon icon-p">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="url(#contact3)"/>
+          <defs><linearGradient id="contact3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" /><stop offset="100%" style="stop-color:#f43f5e;stop-opacity:1" /></linearGradient></defs>
+        </svg>
+      </div>
+      <h4>Email</h4>
+      <p>support.golyne@gmail.com</p>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon icon-v">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="url(#contact4)"/>
+          <defs><linearGradient id="contact4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9d4edd;stop-opacity:1" /><stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" /></linearGradient></defs>
+        </svg>
+      </div>
+      <h4>Address</h4>
+      <p>Greater Noida</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><img src="images/logo.png" alt="Golyne Logo" style="height:100px;width:auto;transform:scale(1.8);transform-origin:left center;"></div>
+      <p>India's fastest digital agency. Websites, apps, SEO, ads, social media, automation and lead generation — all in one place.</p>
+      <div class="social-links">
+        <a class="social-link" href="#">in</a>
+        <a class="social-link" href="#">tw</a>
+        <a class="social-link" href="#">ig</a>
+        <a class="social-link" href="#">wa</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="service.html?service=website">Website Development</a></li>
+      <li><a href="service.html?service=mobile">Mobile Apps</a></li>
+      <li><a href="service.html?service=seo">SEO</a></li>
+      <li><a href="service.html?service=ads">Paid Ads</a></li>
+      <li><a href="service.html?service=social">Social Media</a></li>
+      <li><a href="service.html?service=automation">Automation</a></li>
+      <li><a href="service.html?service=leads">Lead Generation</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Our Work</a></li><li><a href="#">Pricing</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">WhatsApp Us</a></li><li><a href="#">hello@golyne.in</a></li><li><a href="#">+91 XXXXX XXXXX</a></li><li><a href="#">Greater Noida, India</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Golyne. All rights reserved.</span><span>Made with ❤️ in India</span></div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5)*25;
+  const y=(e.clientY/window.innerHeight-.5)*25;
+  document.querySelector('.orb1').style.transform=`translate(${x*.4}px,${y*.4}px)`;
+  document.querySelector('.orb2').style.transform=`translate(${-x*.3}px,${-y*.3}px)`;
+  document.querySelector('.orb3').style.transform=`translate(${x*.7}px,${y*.7}px)`;
+});
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background=window.scrollY>50?'rgba(4,4,15,0.96)':'rgba(4,4,15,0.7)';
+});
+</script>
+</body>
+</html>
